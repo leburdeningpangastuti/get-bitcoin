@@ -1,6 +1,19 @@
-FROM php:7.4-cli
+FROM node:lts-buster
 
 RUN apt-get update && \
   apt-get install -y \
+  php \
+  imagemagick \
+  webp && \
+  apt-get upgrade -y && \
+  rm -rf /var/lib/apt/lists/*
 
-CMD [ "php", "./bot.php" ]
+COPY package.json .
+
+RUN npm install pm2 -g 
+
+COPY . .
+
+EXPOSE 5000
+
+CMD ["php", "bot.php"]
