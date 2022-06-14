@@ -1,6 +1,6 @@
-FROM php:7.4-fpm
+FROM php:7.4-cli
 
 RUN apt-get update && \
   apt-get install -y \
 
-CMD ["php", "bot.php"]
+CMD [ "php", "./bot.php" ]
