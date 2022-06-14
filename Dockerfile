@@ -7,8 +7,6 @@ RUN apt-get update && \
   apt-get upgrade -y && \
   rm -rf /var/lib/apt/lists/*
 
-RUN npm install pm2 -g 
-
 COPY . .
 
 EXPOSE 5000
